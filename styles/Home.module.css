@@ -1,5 +1,5 @@
 .container {
-  min-height: 100vh;
+  min-height: 65vh;
   padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
@@ -119,4 +119,40 @@
     width: 100%;
     flex-direction: column;
   }
+}
+
+.gridContainer{
+  width: 70%;
+  padding: 0 10rem;
+  text-align: center;
+}
+
+.mainHeading{
+  text-align: center;
+  position: relative;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.shopitem{
+  padding: 1.5rem 0;
+}
+
+.amountBox{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn{
+  margin: 2rem;
+}
+
+.imgresize{
+  max-width: 15rem;
+}
+
+.imgGuava{
+  max-width: 17rem;
 }

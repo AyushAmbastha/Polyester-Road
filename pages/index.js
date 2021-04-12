@@ -1,65 +1,102 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+import Button from "@material-ui/core/Button";
+import Banana from "../public/banana.jpg"
+import Apple from "../public/apple.jpg"
+import Mango from "../public/mango.jpg"
+import Grapes from "../public/guava.jpg"
 
 export default function Home() {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+    <>
+      <div className={styles.container}>
+        <Head>
+          <title>Shop</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <div className={styles.gridContainer}>
+          <Grid container spacing={5} className={styles.gridClass}>
+            <Grid item xs={6}>
+              <Paper>
+                <div className={styles.shopitem}>
+                  <h1>Banana</h1>
+                  <img src={Banana} alt="banana" className={styles.imgresize}/>
+                  <div className={styles.amountBox}>
+                    <h2>$1000.00</h2>
+                    <div className={styles.btn}>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                    >
+                      Buy now!
+                    </Button>
+                    </div>
+                  </div>
+                </div>
+              </Paper>
+            </Grid>
+            <Grid item xs={6}>
+              <Paper>
+                <div className={styles.shopitem}>
+                  <h1>Apple</h1>
+                  <img src={Apple} alt="apple" className={styles.imgresize}/>
+                  <div className={styles.amountBox}>
+                    <h2>$1000.00</h2>
+                    <div className={styles.btn}>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                    >
+                      Buy now!
+                    </Button>
+                    </div>
+                  </div>
+                </div>
+              </Paper>
+            </Grid>
+            <Grid item xs={6}>
+              <Paper>
+                <div className={styles.shopitem}>
+                  <h1>Mango</h1>
+                  <img src={Mango} alt="mango" className={styles.imgresize}/>
+                  <div className={styles.amountBox}>
+                    <h2>$1000.00</h2>
+                    <div className={styles.btn}>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                    >
+                      Buy now!
+                    </Button>
+                    </div>
+                  </div>
+                </div>
+              </Paper>
+            </Grid>
+            <Grid item xs={6}>
+              <Paper>
+                <div className={styles.shopitem}>
+                  <h1>Guava</h1>
+                  <img src={Grapes} alt="grapes" className={styles.imgGuava}/>
+                  <div className={styles.amountBox}>
+                    <h2>$1000.00</h2>
+                    <div className={styles.btn}>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                    >
+                      Buy now!
+                    </Button>
+                    </div>
+                  </div>
+                </div>
+              </Paper>
+            </Grid>
+          </Grid>
         </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
+      </div>
+    </>
   )
 }
