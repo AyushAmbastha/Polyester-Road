@@ -6,12 +6,37 @@ import Apple from "../public/apple.jpg"
 import Button from "@material-ui/core/Button";
 import Link from 'next/link'
 import { useState } from 'react';
+//var mysql = require('mysql');
 
 export default function Checkout() {
 
     const [TID, setTID] = useState('')
     const [email, setEmail] = useState('')
-    const [quantity, setQ] = useState('')
+    //Item ID is hard coded
+
+    async function handleSubmit(e) {
+        console.log("In transfer function")
+        let data = {
+            "itemID": 1,
+            "email": email,
+            "transactionID": TID
+        }
+
+        fetch(`http://localhost:5000/inserTransaction`, {
+            method: 'POST',
+            credentials: 'omit',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Credentials': true,
+            },
+            body: JSON.stringify(data),
+        }).catch(error => {
+            console.error('Error:', error);
+        });
+    }
+
+
 
     return (
         <div className={styles.container}>
@@ -28,18 +53,14 @@ export default function Checkout() {
                                 <h2>We only accept payment through Bitcoin</h2>
                                 <h2>Address to send money to: Some value </h2>
                                 <div className={styles.finalProduct}>
-                                    <img src={Apple} alt="apple" className={styles.imgCheckout}/>
+                                    <img src={Apple} alt="apple" className={styles.imgCheckout} />
                                     <div className={styles.productDetails}>
                                         <h2>Item: 1 dozen Apples</h2>
                                         <h2>Price: $1500</h2>
-                                        <div className={styles.rowAlign}>
-                                            <h2>Quantity: </h2> &nbsp;
-                                            <input type="number" id="quantity" className={styles.inputField} onChange={e => setQ(e.target.value)}/>
-                                        </div>
                                         <h2>Enter the Transaction ID:</h2>
-                                        <input type="text" id="trans_id" className={styles.inputFieldT} onChange={e => setTID(e.target.value)}/>
+                                        <input type="text" id="trans_id" className={styles.inputFieldT} onChange={e => setTID(e.target.value)} />
                                         <h2>Email ID:</h2>
-                                        <input type="text" id="trans_id" className={styles.inputFieldT} onChange={e => setEmail(e.target.value)}/>
+                                        <input type="text" id="trans_id" className={styles.inputFieldT} onChange={e => setEmail(e.target.value)} />
                                         <div className={styles.buttonGroup}>
                                             <Link href="/">
                                                 <Button
@@ -54,6 +75,7 @@ export default function Checkout() {
                                                 variant="contained"
                                                 color="primary"
                                                 className={styles.buyButton}
+                                                onClick={handleSubmit}
                                             >
                                                 Send Request!
                                             </Button>
