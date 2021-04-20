@@ -6,7 +6,6 @@ import Apple from "../public/apple.jpg"
 import Button from "@material-ui/core/Button";
 import Link from 'next/link'
 import { useState } from 'react';
-//var mysql = require('mysql');
 
 export default function Checkout() {
 
@@ -17,12 +16,12 @@ export default function Checkout() {
     async function handleSubmit(e) {
         console.log("In transfer function")
         let data = {
-            "itemID": 1,
+            "itemID": 2,
             "email": email,
             "transactionID": TID
         }
 
-        fetch(`http://localhost:5000/inserTransaction`, {
+        fetch(`http://10.0.1.4:5000/`, {
             method: 'POST',
             credentials: 'omit',
             headers: {

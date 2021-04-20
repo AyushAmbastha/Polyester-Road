@@ -11,7 +11,29 @@ export default function Checkout() {
 
     const [TID, setTID] = useState('')
     const [email, setEmail] = useState('')
-    const [quantity, setQ] = useState('')
+    //Item ID is hard coded
+
+    async function handleSubmit(e) {
+        console.log("In transfer function")
+        let data = {
+            "itemID": 1,
+            "email": email,
+            "transactionID": TID
+        }
+
+        fetch(`http://10.0.1.4:5000/`, {
+            method: 'POST',
+            credentials: 'omit',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Credentials': true,
+            },
+            body: JSON.stringify(data),
+        }).catch(error => {
+            console.error('Error:', error);
+        });
+    }
 
     return (
         <div className={styles.container}>
@@ -54,6 +76,7 @@ export default function Checkout() {
                                                 variant="contained"
                                                 color="primary"
                                                 className={styles.buyButton}
+                                                onClick={handleSubmit}
                                             >
                                                 Send Request!
                                             </Button>
